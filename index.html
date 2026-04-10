@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: black;
+  color: white;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* background */
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: url('background.jpg');
+  background-size: cover;
+  background-repeat: repeat;
+  opacity: 0.08;
+  z-index: -1;
+}
+
+section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  text-align: center;
+}
+
+.hero {
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+p {
+  max-width: 1000px;
+  line-height: 1.6;
+}
+
+/* sticky header */
+.sticky-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  background: rgba(0,0,0,0.7);
+  padding: 15px;
+  font-size: 1.6rem;
+  z-index: 10;
+}
+
+/* year layout */
+.year {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.left, .right {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-box img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.text-box {
+  max-width: 350px;
+  word-wrap: break-word;
+}
+
+/* alternate layout */
+.reverse {
+  flex-direction: row-reverse;
+}
+
+/* fade */
+.fade {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* spotify */
+.spotify {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spotify-btn {
+  padding: 12px 24px;
+  border-radius: 25px;
+  border: none;
+  background: #ff4d88;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.spotify-btn:hover {
+  background: #ff1a66;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-size: 3rem;
+}
+
+.title span {
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@media (max-width: 768px) {
+  .year {
+    flex-direction: column;
+    height: auto;
+    padding: 60px 20px;
+  }
+
+  .left, .right {
+    width: 100%;
+  }
+
+  .image-box img {
+    max-width: 90%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero fade">
+  <div>
+    <h1 class="title">
+      <span>❤️</span>
+        Happy Birthday, Zaina
+      <span>❤️</span>
+    </h1>
+    <p>The happiest birthday of all, my love. The only kind you deserve. I love you so much. You're my home and today is the day it came to existence. What is there to not celebrate?</p>
+    <p>I know I can't make your birthday perfect, but I will try.</p>
+  </div>
+</section>
+
+<!-- 2025 -->
+<section class="year fade">
+  <div class="left image-box">
+    <img src="2025.png">
+  </div>
+  <div class="right text-box">
+    <p>For every past year, and for all birthdays to come, I wish you a very happy birthday. And remember that everyone around you will work to make it as such.</p>
+  </div>
+</section>
+
+<!-- 2024 -->
+<section class="year reverse fade">
+  <div class="left image-box">
+    <img src="2024.png">
+  </div>
+  <div class="right text-box">
+    <p>I love you, Zaina. Every year, I will wish you a happy birthday in a different way. And every year, it'll be with love.</p>
+  </div>
+</section>
+
+<!-- 2023 -->
+<section class="year fade">
+  <div class="left image-box">
+    <img src="2023.png">
+  </div>
+  <div class="right text-box">
+    <p>Every year, everyone will love you more. Love changes as we do and trust me that everyone who loves you wants you to be happy, always.</p>
+  </div>
+</section>
+
+<!-- spotify -->
+<section class="spotify fade">
+  <a href="https://open.spotify.com/playlist/1yJrsdtJKmPZhydbNw5iX6?si=Kbs9tkc1RZeReDArPyp5XA" target="https://open.spotify.com/playlist/1yJrsdtJKmPZhydbNw5iX6?si=Kbs9tkc1RZeReDArPyp5XA">
+    <button class="spotify-btn">A little something I made for you 🎧</button>
+  </a>
+</section>
+
+<script>
+const faders = document.querySelectorAll('.fade');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+});
+
+faders.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
