@@ -167,6 +167,20 @@ p {
 </style>
 </head>
 
+<audio id="bgm" src="music.mp3" loop></audio>
+
+<script>
+function startMusic() {
+  const audio = document.getElementById("bgm");
+  audio.play();
+  document.removeEventListener("click", startMusic);
+  document.removeEventListener("scroll", startMusic);
+}
+
+document.addEventListener("click", startMusic);
+document.addEventListener("scroll", startMusic);
+</script>
+
 <body>
 
 <!-- HERO -->
